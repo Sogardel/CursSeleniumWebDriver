@@ -8,7 +8,7 @@ public class FirstTest {
 	
 	@Test
 	public void testSelenium() {
-		//System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 		
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://keybooks.ro/");
