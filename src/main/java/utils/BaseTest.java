@@ -8,11 +8,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+import pages.NavMenuPage;
+
 public class BaseTest {
 	
 	public WebDriver driver;
 	public JavascriptExecutor jseExecutor; 
-
+	public NavMenuPage navMenu;
 	
 	@BeforeClass
 	public void setUp() {
@@ -22,6 +24,7 @@ public class BaseTest {
 		//driver.get("https://the-internet.herokuapp.com/login");
 		driver.get("https://keybooks.ro/");
 		jseExecutor =  (JavascriptExecutor)driver;
+		navMenu =  new NavMenuPage(driver);
 	}
 	
 	@AfterClass
