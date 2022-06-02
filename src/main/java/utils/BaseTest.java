@@ -57,15 +57,8 @@ public class BaseTest {
 			} catch (IOException e) {
 				System.out.println("Picture could not be saved");
 				e.printStackTrace();
-			}
-			
-			
-			
-			
-		}
-		
-		
-		
+			}		
+		}	
 	}
 	
 	
