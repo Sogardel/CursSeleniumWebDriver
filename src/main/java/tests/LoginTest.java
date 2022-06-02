@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest{
 	
 	
 	
-	@Test
+	@Test(groups = "Login")
 	public void loginTest() {
 		//NavMenuPage navMenu = new NavMenuPage(driver);
 		
@@ -26,7 +26,6 @@ public class LoginTest extends BaseTest{
 		 // loginPage.clickSubmit(); 
 		 // assertEquals(navMenu.getLoggedUser(), "Test User");
 		 
-		
 		LoginPage loginPage = navMenu.navToLogin();
 		loginPage.loginInApp("TestUser", "12345@67890");
 		assertEquals(navMenu.getLoggedUser(), "Test User");

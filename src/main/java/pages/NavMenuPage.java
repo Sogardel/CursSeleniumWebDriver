@@ -14,6 +14,8 @@ public class NavMenuPage {
 	
 	public By loginLink = By.linkText("Login");
 	public By homeLink = By.linkText("HOME");
+	public By shopLink = By.linkText("BOOKS");
+	public By contactsLink = By.linkText("CONTACTS");
 	
 	public By loggedUsername = By.cssSelector("span[class='user_name']");
 	
@@ -35,6 +37,19 @@ public class NavMenuPage {
 		driver.findElement(loginLink).click();
 		return new LoginPage(driver);
 	}
+	
+	public ShopPage navToShop() {
+		driver.findElement(shopLink).click();
+		return new ShopPage(driver);
+	}
+	
+	public ContactsPage navToContacts() {
+		
+		driver.findElement(contactsLink).click();
+		return new ContactsPage(driver);
+	}
+	
+	
 	
 	
 	public String getLoggedUser() {
