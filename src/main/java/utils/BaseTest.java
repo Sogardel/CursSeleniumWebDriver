@@ -15,6 +15,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 import com.google.common.io.Files;
 
@@ -26,24 +27,26 @@ public class BaseTest {
 	public JavascriptExecutor jseExecutor; 
 	public NavMenuPage navMenu;
 	
-	@BeforeClass
+	//@Parameters({"url"})
+	@BeforeClass(alwaysRun = true)
 	public void setUp() {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
 		//driver.get("https://the-internet.herokuapp.com/login");
-		driver.get("https://keybooks.ro/");
+		driver.get("https://keybooks.ro");
+		//driver.get(url);
 		jseExecutor =  (JavascriptExecutor)driver;
 		navMenu =  new NavMenuPage(driver);
 	}
 	
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void tearDown() throws InterruptedException {
 		Thread.sleep(4000);
 		driver.quit();
 	}
 	
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void recordFailure(ITestResult result) {
 		if(ITestResult.FAILURE == result.getStatus() ) {
 			
